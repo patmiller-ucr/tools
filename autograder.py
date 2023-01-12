@@ -10,4 +10,11 @@ args = parser.parse_args()
 # read cpp file and parse tests from file
 with open(args.cppFilePath) as cppFile:
   cppFileLines = cppFile.readlines()
-  print(cppFileLines)
+
+  # parse tests from cpp file
+  tests = []
+  for line in cppFileLines:
+    if line.lower().startswith('// test'):
+      tests.append(line)
+
+  print(tests)
