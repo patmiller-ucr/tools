@@ -31,6 +31,6 @@ with open(args.cppFilePath) as cppFile:
 
 # compile cpp file and ensure that it does not have any errors
 compilation = runSubprocess(['g++', args.cppFilePath])
-# run compilation and capture output
-output = subprocess.run(['./a.out'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-print(output.stdout.decode('utf-8'))
+# capture output from running the compiled file
+output = runSubprocess(['./a.out'])
+print(output)
